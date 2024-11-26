@@ -2,16 +2,17 @@ package LinkedList;
 
 import java.util.Scanner;
 
-public class SinglyLinkedList {
+public class DoublyLinkedList {
     Node head = null;
 
     class Node {
         int data;
-        Node next;
+        Node prev,next;
 
         public Node(int data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
     
@@ -29,6 +30,7 @@ public class SinglyLinkedList {
         }
 
         newNode.next = head;
+        head.prev = newNode;
         head = newNode;
         System.out.println("Inserted.\n");
     }
@@ -53,6 +55,7 @@ public class SinglyLinkedList {
             curNode = curNode.next;
         }
 
+        newNode.prev = curNode;
         curNode.next = newNode;
         System.out.println("Inserted.\n");
     }
@@ -74,12 +77,14 @@ public class SinglyLinkedList {
         // If the deleting node is the head
         if (curNode != null && curNode.data == data) {
             head = curNode.next;
+            if (head != null) {
+                head.prev = null;
+            }
             System.out.println("Deleted head node with value: " + data);
             return;
         }
 
         while (curNode != null && curNode.data != data) {
-            prNode = curNode;
             curNode = curNode.next;
         }
     
@@ -88,9 +93,13 @@ public class SinglyLinkedList {
             System.out.println("Node with value " + data + " not found.\n");
             return;
         }
-    
-        prNode.next = curNode.next;
-        System.out.println("Deleted node with value: " + data);
+
+        if (curNode.prev != null) {
+            curNode.prev.next = curNode.next;
+        }
+        if (curNode.next != null) {
+            curNode.next.prev = curNode.prev;
+        }
     }
     
 
