@@ -17,7 +17,6 @@ public class StackByArray {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number you want to push: ");
         int val = sc.nextInt();
-        sc.close();
 
         top++;
         arr[top] = val;
@@ -31,7 +30,6 @@ public class StackByArray {
             System.out.println("Stack underflow.\n\n");
             return;
         }
-
         System.out.println(arr[top] + " popped.\n\n");
         top--;  
     }
@@ -42,13 +40,10 @@ public class StackByArray {
             System.out.println("Stack is empty.\n\n");
             return;
         }
-
-        System.out.println("Stack Elements: ");
-        
+        System.out.println("Stack Elements: ");        
         for(int i=top; i>=0; i--) {
             System.out.println(arr[i]);
         }
-
         System.out.println("\n\n");
     }
 
@@ -60,7 +55,6 @@ public class StackByArray {
             System.out.println("Operations: \n1) Push\n2) Pop\n3) Display\n4) Exit\n\n");
             System.out.println("Enter the operation: ");
             int opt = sc.nextInt();
-            sc.close();
     
             switch (opt){
             case 1:

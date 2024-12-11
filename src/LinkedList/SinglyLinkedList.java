@@ -108,7 +108,8 @@ public class SinglyLinkedList {
             System.out.print(curNode.data + " -> "); 
             curNode = curNode.next;           
         }
-        System.out.println("null\n");
+        System.out.print("null\n");
+        System.out.println("Traversal Complete.");
     }
 
     //Searching for the element
@@ -116,7 +117,7 @@ public class SinglyLinkedList {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number you want to search: ");
         int data = sc.nextInt();
-        int count = 0;
+        int count = 1;
 
         if(head == null) {
             System.out.println("List is empty.\n");
